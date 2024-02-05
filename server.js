@@ -14,7 +14,7 @@ mongoose.connect(DB,{
     useUnifiedTopology:true
 }).then(con=>{
     // console.log(con.connections);
-    console.log("Db connected");
+    // console.log("Db connected");
 })
 
 // console.log(process.env.NODE_ENV);

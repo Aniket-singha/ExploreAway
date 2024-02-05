@@ -194,7 +194,7 @@ tourShcema.pre(/^find/,function(next){
     next();
 })
 tourShcema.post(/^find/,function(doc,next){
-    console.log(`query took ${Date.now()-this.start} millisecond `)
+    // console.log(`query took ${Date.now()-this.start} millisecond `)
     next()
 })
 

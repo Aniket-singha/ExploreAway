@@ -1,5 +1,6 @@
 const express=require('express');
 const morgan=require('morgan');
+const compression=require('compression')
 const globalErrorHandler=require('./Controllers/errorController.js')
 const AppError=require('./utils/appError.js')
 const tourRouter=require('./routes/tourRoutes.js');
@@ -25,7 +26,7 @@ app.set('view engine','pug');
 app.set('views',path.join(__dirname,'views'))
 
 // app.use(helmet())
-
+app.use(compression())
 
 const limiter=rateLimit({
     max:100,
@@ -49,8 +50,8 @@ app.use(express.static(path.join(__dirname,'public')))
 
 app.use(express.urlencoded({extended:true,limit:'10kb'}))
 app.use(cookieParser())
-console.log(process.env.NODE_ENV);
-console.log(typeof(process.env.NODE_ENV));
+// console.log(process.env.NODE_ENV);
+// console.log(typeof(process.env.NODE_ENV));
 
 app.use((req,res,next)=>{
     req.requestTime=new Date().toISOString();
