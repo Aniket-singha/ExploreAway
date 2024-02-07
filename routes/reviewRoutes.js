@@ -1,6 +1,6 @@
 const express=require('express');
-const authController=require('./../controllers/authController')
-const reviewController=require('./../controllers/reviewController')
+const authController=require('./../Controllers/authController')
+const reviewController=require('./../Controllers/reviewController')
 const router=express.Router({mergeParams:true});
 
 router.use(authController.protect)
