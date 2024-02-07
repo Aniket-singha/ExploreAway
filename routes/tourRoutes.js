@@ -1,5 +1,5 @@
 const express = require('express');
-const authController = require('./../controllers/authController.js');
+const authController = require('./../Controllers/authController.js');
 // const reviewController=require('./../controllers/reviewController')
 
 const tourController = require('./../Controllers/tourController');
