@@ -20,7 +20,8 @@ const app=express();
 //     app.use(morgan('dev'));
 
 //a }
-
+console.log(process.env.NODE_ENV)
+app.enable('trust proxy')
   
 app.set('view engine','pug');
 app.set('views',path.join(__dirname,'views'))
