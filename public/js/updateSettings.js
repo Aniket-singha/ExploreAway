@@ -11,7 +11,7 @@ try{
     })
 
     if(res.data.status==='success'){
-        showAlert('success',`${type.toUpperCase()} updated succesfully`)
+        showAlert('success',`${type.toUpperCase()} UPDATED SUCCESSFULLY`)
         window.setTimeout(()=>{
             location.assign('/me')
         },1500)

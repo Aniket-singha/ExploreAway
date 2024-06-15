@@ -1,4 +1,3 @@
-
 const dotenv=require("dotenv");
 const mongoose=require('mongoose')
 
@@ -33,7 +32,7 @@ mongoose.connect(DB,{
 
 const port=process.env.PORT || 3002;
  
-app.listen(port,()=>{ 
+const server=app.listen(port,()=>{ 
     console.log(`app running on ${port}`);
 })
 

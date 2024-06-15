@@ -8,9 +8,11 @@ const userPasswordForm=document.querySelector('.form-user-password')
 const userDataForm=document.querySelector('.form-user-data')
 const bookBtn=document.getElementById('book-tour');
 const signupForm=document.querySelector('.form--signup')
+
 if(loginForm){
 loginForm.addEventListener('submit',e=>{
     e.preventDefault();
+
     const email=document.getElementById('email').value
     const password=document.getElementById('password').value
     login(email,password)
@@ -24,9 +26,15 @@ if(signupForm){
     const email=document.getElementById('email').value
     const password=document.getElementById('password').value
     const passwordConfirm=document.getElementById('passwordConfirm').value
-    signup(username,email,password,passwordConfirm);
-
-
+   const submitButton=document.querySelector('.albela');
+   submitButton.textContent='Creating your account...'
+   
+   signup(username, email, password, passwordConfirm).then(() => {
+    submitButton.textContent = 'Create Account';
+}).catch(() => {
+    // Revert the button text back to "Create Account" in case of error
+    submitButton.textContent = 'Create Account';
+});
     })
 }
 if(logoutBtn)logoutBtn.addEventListener('click',logout)
@@ -49,21 +57,18 @@ updateSettings(form,'data')
 }
 
 if(userPasswordForm){
-    userPasswordForm.addEventListener('submit',e=>{
+    userPasswordForm.addEventListener('submit',async e=>{
      e.preventDefault()
      
-
-    //  const form=new FormData()
-    //  form.append('name',document.getElementById('name').value)
-    //  form.append('email',document.getElementById('email').value)
-    //  form.append('photo',document.getElementById('photo').files[0])
-    //  console.log(form)
-
 const passwordCurrent=document.getElementById('password-current').value;
 const password=document.getElementById('password').value;
 const passwordConfirm=document.getElementById('password-confirm').value;
 
-updateSettings({passwordCurrent,password,passwordConfirm},'password')
+await updateSettings({passwordCurrent,password,passwordConfirm},'password')
+document.getElementById('password-current').value=''
+document.getElementById('password').value=''
+document.getElementById('password-confirm').value=''
+
 
     })
 }
